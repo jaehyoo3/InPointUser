@@ -38,7 +38,7 @@ public class PaymentController {
                             schema = @Schema(implementation = Payment.class)))
     })
     @PostMapping("/request")
-    public ResponseEntity<Payment> requestPayment(@RequestBody PaymentDTO paymentDto) {
+    public ResponseEntity<Payment> requestPayment(@org.springframework.web.bind.annotation.RequestBody PaymentDTO paymentDto) {
         return ResponseEntity.ok(paymentService.requestPayment(paymentDto));
     }
 
@@ -55,7 +55,7 @@ public class PaymentController {
                             schema = @Schema(implementation = Payment.class)))
     })
     @PostMapping("/confirm")
-    public ResponseEntity<Payment> confirmPayment(@RequestBody PaymentConfirmDTO confirmDto) {
+    public ResponseEntity<Payment> confirmPayment(@org.springframework.web.bind.annotation.RequestBody PaymentConfirmDTO confirmDto) {
         return ResponseEntity.ok(paymentService.confirmPayment(confirmDto));
     }
 
