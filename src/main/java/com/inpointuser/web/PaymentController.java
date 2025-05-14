@@ -49,11 +49,10 @@ public class PaymentController {
             content = @Content(mediaType = "application/json",
                     schema = @Schema(implementation = PaymentConfirmDTO.class))
     )
-    @ApiResponses(value = { // 성공 응답만 명시
+    @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "결제 승인 성공",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Payment.class)))
-            // 4xx, 5xx 에러 응답 정의 제거
     })
     @PostMapping("/confirm")
     public ResponseEntity<Payment> confirmPayment(@RequestBody PaymentConfirmDTO confirmDto) {
